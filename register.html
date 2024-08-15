@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Page</title>
+    <title>Registeration page</title>
     <link rel="stylesheet" href="css/register.css">
+     <!-- icon -->
+     <link rel="icon" type="icon" href="icon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
@@ -14,38 +16,38 @@
         <div class="text">
            Register
         </div>
-        <form action="#">
+        <form action="php/register.php" method="POST">
            <div class="field">
-              <input required="" type="text" class="input">
+              <input required="" type="text" class="input" name="name" >
               <label class="label">Name</label>
            </div>
            <div class="field">
-              <input required="" type="text" class="input">
+              <input required="" type="text" class="input" name="email">
               <label class="label">Email</label>
            </div>
            <div class="field">
-            <input required="" type="password" class="input">
+            <input required="" type="password" class="input" name="password">
             <label class="label">Password</label>
          </div>
          <div class="field">
-            <input required="" type="text" class="input">
+            <input required="" type="text" class="input" name="phone">
             <label class="label">Phone no.</label>
          </div>
          <div class="field">
-            <input required="" type="text" class="input">
+            <input required="" type="text" class="input" name="address">
             <label class="label">Address</label>
          </div>
          <div class="field">
-            <input required="" type="text" class="input">
+            <input required="" type="text" class="input" name="age">
             <label class="label">Age</label>
          </div>
          <div class="field">
-            <input required="" type="text" class="input">
+            <input required="" type="text" class="input" name="salary">
             <label class="label">Salary</label>
          </div>
+         <input type="hidden" name="role" value="employee">
            <br>
-           <button class="button">Register</button>
-           
+           <button class="button" value="Register">Submit</button>
         </form>
      </div>
 </body>

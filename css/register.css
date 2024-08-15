@@ -76,21 +76,6 @@ body{
     opacity: 0;
   }
   
-  .forgot-pass {
-    text-align: left;
-    margin: 10px 0 10px 5px;
-  }
-  
-  .forgot-pass a {
-    font-size: 16px;
-    color: #666666;
-    text-decoration: none;
-  }
-  
-  .forgot-pass:hover a {
-    text-decoration: underline;
-  }
-  
   .button {
     margin: 15px 0;
     width: 100%;
