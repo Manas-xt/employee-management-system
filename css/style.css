@@ -7,6 +7,7 @@ body{
     margin: 0;
     padding: 20px;
     width: 100%;
+    
     /* background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); */
 }
 .heading{
@@ -16,9 +17,11 @@ body{
     color: #292522;
 }
 .heading h1{
+    animation: fadeInDown 1s 2s;
     margin-top: 0px;
 }
 .form{
+    animation: fadeInDown 1s 2s;
     font-weight: 400;
     display: flex;
     flex-direction: column;
@@ -47,6 +50,7 @@ body{
     margin-top: 50px;
 }
 #footer{
+    animation: fadeInDown 1s 2s;
     position:fixed;
     left: 0;
     bottom: 0;

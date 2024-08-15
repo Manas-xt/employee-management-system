@@ -9,6 +9,7 @@ body{
     align-items: center;
     min-height: 100vh;
     background: #e5e5e5;
+    animation: fadeInDown 1s 0s;
 }
 .content {
     width: 330px;
