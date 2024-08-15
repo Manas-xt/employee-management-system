@@ -1,12 +1,13 @@
 *{
     font-family: poppins;
-
-}
+}   
 body{ 
     background-color:white;
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 20px;
+    width: 100%;
+    /* background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); */
 }
 .heading{
     font-size: 2.5rem;
@@ -78,7 +79,7 @@ body{
         font-size: 2rem;
     }
 }
-@media(max-width:1024px){
+@media(max-width:767px){
     #footer{
         position: relative;
     }
