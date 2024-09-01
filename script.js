@@ -20,3 +20,27 @@ document.addEventListener('DOMContentLoaded', function() {
     // Start hiding process when the window is fully loaded
     window.addEventListener('load', hideLoadingScreen);
   });
+
+
+  // navbar
+  document.addEventListener('DOMContentLoaded', function() {
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('.nav-menu');
+
+    hamburger.addEventListener('click', toggleMenu);
+
+    function toggleMenu() {
+        hamburger.classList.toggle('active');
+        navMenu.classList.toggle('active');
+    }
+
+    // Close menu when a nav link is clicked
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+        });
+    });
+});
+
+
