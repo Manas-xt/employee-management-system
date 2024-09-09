@@ -44,3 +44,6 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
+function showAlert() {
+  alert("Please login first to view this page");
+}

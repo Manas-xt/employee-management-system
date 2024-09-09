@@ -1,5 +1,6 @@
 *{
     font-family: poppins;
+    scroll-behavior: smooth ;
 }   
 body{ 
     /* background: #e5e5e5; */
@@ -160,12 +161,14 @@ body{
 
   #btn{
     background-color: #107efb ;
+    background-image: linear-gradient(to left, #4481eb 0%, #04befe 100%);
   }
   #btn:hover{
     background-color: #087bd3;
   }
   #btn2{
     background-color: #6ccf25 ;
+    background-image: linear-gradient(to left, #0ba360 0%, #3cba92 100%);
     color: WHITE;
   }
   #btn2:hover{
@@ -547,4 +550,5 @@ body{
     height: 220px;
     opacity: 1;
   }
+  
   
