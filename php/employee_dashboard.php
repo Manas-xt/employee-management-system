@@ -12,6 +12,8 @@ $sql = "SELECT * FROM employees WHERE id='$employee_id'";
 $result = $conn->query($sql);
 $employee = $result->fetch_assoc();
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -96,6 +98,148 @@ $employee = $result->fetch_assoc();
             color: #333333;
         }
 
+
+
+.attendance-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0px;
+}
+
+.stat-card {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+    padding: 25px;
+    text-align: center;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+}
+
+.stat-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, #00aaff, #00ff88);
+}
+
+.percentage-circle {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin: 10px auto 20px;
+    position: relative;
+    background: #f0f0f0;
+    padding: 20px;
+    box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.1);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+    100% { transform: scale(1); }
+}
+
+.circle-fill {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    background: #ffffff;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.percentage-value {
+    font-size: 32px;
+    font-weight: 700;
+    background: linear-gradient(45deg, #00aaff, #00ff88);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 5px;
+}
+
+.stat-label {
+    font-size: 18px;
+    font-weight: 600;
+    color: #444;
+    margin-top: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.stat-sublabel {
+    font-size: 14px;
+    color: #666;
+    margin-top: 5px;
+}
+
+.attendance-trend {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+@media (max-width: 768px) {
+    .attendance-stats {
+        display: flex;
+        flex-direction: column;
+    }
+}
+.trend-indicator {
+    font-size: 14px;
+    padding: 5px 12px;
+    border-radius: 15px;
+    background: rgba(0, 170, 255, 0.1);
+    color: #00aaff;
+}
+
+.trend-up {
+    background: rgba(0, 255, 136, 0.1);
+    color: #00cc69;
+}
+
+.trend-down {
+    background: rgba(255, 82, 82, 0.1);
+    color: #ff5252;
+}
+
+/* Custom gradients for different percentage ranges */
+.excellent {
+    background: conic-gradient(#00ff88 0% var(--percentage), #f0f0f0 var(--percentage) 100%);
+}
+
+.good {
+    background: conic-gradient(#00aaff 0% var(--percentage), #f0f0f0 var(--percentage) 100%);
+}
+
+.average {
+    background: conic-gradient(#ffd700 0% var(--percentage), #f0f0f0 var(--percentage) 100%);
+}
+
+.poor {
+    background: conic-gradient(#ff5252 0% var(--percentage), #f0f0f0 var(--percentage) 100%);
+}
+
+
     </style>
 </head>
 <body>
@@ -121,6 +265,53 @@ $employee = $result->fetch_assoc();
                 <p class="mb-2"><strong>Home Address:</strong> <?php echo $employee['address']; ?></p>
                 <p class="mb-2"><strong>Salary:</strong> <?php echo $employee['salary']; ?></p>
                 <p class="mb-2"><strong>Age:</strong> <?php echo $employee['age']; ?></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="attendance-stats">
+        <div class="stat-card">
+            <h3 class="stat-label">Overall Attendance</h3>
+            <div class="percentage-circle excellent" style="--percentage: 95%">
+                <div class="circle-fill">
+                    <span class="percentage-value">95%</span>
+                    <span class="stat-sublabel">Excellent</span>
+                </div>
+            </div>
+            <div class="attendance-trend">
+                <span class="trend-indicator trend-up">
+                    <i class="fas fa-arrow-up"></i> 3% vs last month
+                </span>
+            </div>
+        </div>
+    
+        <div class="stat-card">
+            <h3 class="stat-label">This Month</h3>
+            <div class="percentage-circle good" style="--percentage: 88%">
+                <div class="circle-fill">
+                    <span class="percentage-value">88%</span>
+                    <span class="stat-sublabel">Good</span>
+                </div>
+            </div>
+            <div class="attendance-trend">
+                <span class="trend-indicator">
+                    <i class="fas fa-equals"></i> Same as usual
+                </span>
+            </div>
+        </div>
+    
+        <div class="stat-card">
+            <h3 class="stat-label">This Week</h3>
+            <div class="percentage-circle excellent" style="--percentage: 100%">
+                <div class="circle-fill">
+                    <span class="percentage-value">100%</span>
+                    <span class="stat-sublabel">Perfect</span>
+                </div>
+            </div>
+            <div class="attendance-trend">
+                <span class="trend-indicator trend-up">
+                    <i class="fas fa-arrow-up"></i> Perfect Week!
+                </span>
             </div>
         </div>
     </div>
